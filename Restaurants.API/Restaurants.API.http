@@ -30,11 +30,11 @@ Content-Type: application/json
 }
 ###
 
-DELETE {{Restaurants.API_HostAddress}}/api/restaurants/9
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/1
 
 ###
 
-PUT {{Restaurants.API_HostAddress}}/api/restaurants
+PUT {{Restaurants.API_HostAddress}}/api/restaurants/4
 Content-Type: application/json
 
 {
@@ -43,7 +43,7 @@ Content-Type: application/json
   "description": "Authentic Japanese sushi and sashimi made fresh daily with premium ingredients.",
   "hasDelivery": true,
   "categoryId": 3,
-  "contactEmail": "contact@kfc.com",
+  "contactEmail": "contact2@kfc.com",
   "contactNumber": "01228616700",
   "street": "New St 78",
   "city": "Birmingham",

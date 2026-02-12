@@ -17,7 +17,8 @@ public static class RegisterInfrastructureServices
 
         services.AddDbContext<RestaurantsDbContext>(options =>
         {
-            options.UseSqlServer(configurations.GetConnectionString("RestaurntsDbConnection"));
+            options.UseSqlServer(configurations.GetConnectionString("RestaurntsDbConnection"))
+            .EnableSensitiveDataLogging();
         });
 
         services.AddScoped<IEntitySeeder, CategorySeeder>();
