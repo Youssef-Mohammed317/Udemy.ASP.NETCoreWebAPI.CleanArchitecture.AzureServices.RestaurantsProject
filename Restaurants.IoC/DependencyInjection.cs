@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Restaurants.Application;
+using Restaurants.Application.Common;
 using Restaurants.Infrastructure;
 
 namespace Restaurants.IoC;

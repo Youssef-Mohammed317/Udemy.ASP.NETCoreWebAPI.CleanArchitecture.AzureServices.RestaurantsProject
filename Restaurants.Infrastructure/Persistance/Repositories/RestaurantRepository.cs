@@ -58,13 +58,20 @@ public class Repository<TEntity, TKey>(RestaurantsDbContext _context) : IReposit
 
 public class RestaurantRepository(RestaurantsDbContext _context) : Repository<Restaurant, int>(_context), IRestaurantRepository
 {
-    public async Task<bool> IsContactNumberExist(string number)
+    public async Task<bool> IsContactNumberExist(string number, int? id = null)
     {
-        return await _context.Restaurants.AnyAsync(r => r.ContactNumber == number);
+        return await _context.Restaurants
+            .AnyAsync(r => r.ContactNumber == number && (!id.HasValue || r.Id != id.Value));
     }
-    public async Task<bool> IsContactEmailExist(string email)
+
+    public async Task<bool> IsContactEmailExist(string email, int? id = null)
     {
-        return await _context.Restaurants.AnyAsync(r => r.ContactEmail == email);
+        return await _context.Restaurants
+            .AnyAsync(r => r.ContactEmail == email && (!id.HasValue || r.Id != id.Value));
+    }
+    public async Task<bool> IsRestaurantExist(int id)
+    {
+        return await _context.Restaurants.AnyAsync(r => r.Id == id);
     }
 
 }

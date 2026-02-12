@@ -20,8 +20,9 @@ public interface IRepository<TEntity, TKey>
 }
 public interface IRestaurantRepository : IRepository<Restaurant, int>
 {
-    Task<bool> IsContactEmailExist(string email);
-    Task<bool> IsContactNumberExist(string number);
+    Task<bool> IsContactEmailExist(string email, int? id = null);
+    Task<bool> IsContactNumberExist(string number, int? id = null);
+    Task<bool> IsRestaurantExist(int id);
 }
 public interface ICategoryRepository : IRepository<Category, int>
 {

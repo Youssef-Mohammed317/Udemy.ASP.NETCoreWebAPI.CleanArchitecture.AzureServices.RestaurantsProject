@@ -5,7 +5,7 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurants/7
+GET {{Restaurants.API_HostAddress}}/api/restaurants/4
 
 ###
 
@@ -18,7 +18,7 @@ POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
-    "name": "Sushi Master",
+  "name": "Sushi Master",
   "description": "Fresh and authentic Japanese sushi",
   "hasDelivery": false,
   "categoryId":9,
@@ -28,4 +28,30 @@ Content-Type: application/json
   "city": "Los Angeles",
   "postalCode": "90-01"
 }
+###
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/9
+
+###
+
+PUT {{Restaurants.API_HostAddress}}/api/restaurants
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "Sushi Daily ==",
+  "description": "Authentic Japanese sushi and sashimi made fresh daily with premium ingredients.",
+  "hasDelivery": true,
+  "categoryId": 3,
+  "contactEmail": "contact@kfc.com",
+  "contactNumber": "01228616700",
+  "street": "New St 78",
+  "city": "Birmingham",
+  "postalCode": "12-434",
+  "category": null,
+  "dishes": [],
+  "createdAt": "2026-02-11T19:51:10.9372045",
+  "updatedAt": null
+}
+
 ###
