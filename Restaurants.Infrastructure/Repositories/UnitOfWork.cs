@@ -8,7 +8,7 @@ public class UnitOfWork(RestaurantsDbContext _context) : IUnitOfWork
     private IDishRepository? _dishRepository;
     private ICategoryRepository? _categoryRepository;
 
-    public IRestaurantRepository RestaurantRepository => _restaurantRepository ??= new RestaurantRepository(_context);
+    public IRestaurantRepository RestaurantRepository =>_restaurantRepository ??= new RestaurantRepository(_context);
     public IDishRepository DishRepository => _dishRepository ??= new DishRepository(_context);
     public ICategoryRepository CategoryRepository => _categoryRepository ??= new CategoryRepository(_context);
 
