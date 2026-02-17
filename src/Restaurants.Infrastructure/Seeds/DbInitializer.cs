@@ -12,14 +12,17 @@ public class DbInitializer(RestaurantsDbContext context, IEnumerable<IEntitySeed
     {
         var pendingMigrations = await context.Database.GetPendingMigrationsAsync();
 
-        if (pendingMigrations.Any())
+        if (await context.Database.CanConnectAsync())
         {
-            await context.Database.MigrateAsync();
-        }
+            if (pendingMigrations.Any())
+            {
+                await context.Database.MigrateAsync();
+            }
 
-        foreach (var seader in seeders)
-        {
-            await seader.SeedAsync();
+            foreach (var seeder in seeders)
+            {
+                await seeder.SeedAsync();
+            }
         }
     }
 }

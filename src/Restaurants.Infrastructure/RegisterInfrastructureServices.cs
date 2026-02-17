@@ -20,13 +20,14 @@ public static class RegisterInfrastructureServices
 
         services.AddDbContext<RestaurantsDbContext>(options =>
         {
-            options.UseSqlServer(configurations.GetConnectionString("RestaurntsDbConnection"))
+            options.UseSqlServer(configurations.GetConnectionString("RestaurantsDbConnection"))
             .EnableSensitiveDataLogging();
         });
 
 
-        services.AddScoped<IEntitySeeder, CategorySeeder>();
         services.AddScoped<IEntitySeeder, RoleSeeder>();
+        services.AddScoped<IEntitySeeder, CategorySeeder>();
+        services.AddScoped<IEntitySeeder, RestaurantSeeder>();
         services.AddScoped<IDbInitializer, DbInitializer>();
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();

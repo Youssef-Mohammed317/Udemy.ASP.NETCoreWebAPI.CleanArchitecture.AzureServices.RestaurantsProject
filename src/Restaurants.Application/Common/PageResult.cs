@@ -2,13 +2,13 @@
 
 public class PageResult<T>
 {
-    public PageResult(IEnumerable<T> items, int totalItemsCount,int pageSize, int pageNumber)
+    public PageResult(IEnumerable<T> items, int totalItemsCount, int pageSize, int pageNumber)
     {
         Items = items;
         TotalItemsCount = totalItemsCount;
         TotalPages = (int)Math.Ceiling(totalItemsCount / (double)pageSize);
         ItemsFrom = pageSize * (pageNumber - 1) + 1;
-        ItemsTo = ItemsFrom + pageSize;
+        ItemsTo = ItemsFrom + pageSize - 1;
     }
 
     public IEnumerable<T> Items { get; set; }
